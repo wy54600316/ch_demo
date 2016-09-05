@@ -1,0 +1,280 @@
+@default-color: #333;
+@white-color: #fff;
+@txt-color: #9a9a9a;
+@link-color: #49bbfc;
+@warning-color: #f37b1d;
+@success-color: #5eb95e;
+@error-color: #dd514c;
+@placeholder-color: #bdbdbd;
+@border-color: #dce1e8;
+@active-bg: #e5e5e5;
+@padding-left: 0.24rem;
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /* 兼容iOS下的:active效果 */
+    -webkit-tap-highlight-color: transparent;
+}
+html,
+body {
+    min-height: 100%;
+}
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font: 14px "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+    color: @default-color;
+}
+input,
+pre,
+p,
+textarea,
+button{
+    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+}
+ul,
+li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/*公用类*/
+.hide{
+    display: none !important;
+    visibility: hidden !important;
+}
+.block{
+    display: block !important;
+}
+.inline-block{
+    display: inline-block !important;
+}
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+/* 按钮 */
+.btn{
+    display: inline-block;
+    font-size: 0.28rem;
+    padding: 0.1rem 0.22rem;
+    color: @link-color;
+    background-color: @white-color;
+    border: 1px solid;
+    border-radius: 0.06rem;
+    outline: none;
+
+    &.link-btn{
+        border-width: 0;
+        &:active{
+            color: @link-color;
+            background-color: @active-bg;
+        }
+    }
+    &.warning{
+        color: @warning-color;
+        border-color: @warning-color;
+        &:active{
+            color: @white-color;
+            background-color: @warning-color;
+        }
+    }
+    &.success{
+        color: @success-color;
+        border-color: @success-color;
+        &:active{
+            color: @white-color;
+            background-color: @success-color;
+        }
+    }
+    &.alert{
+        color: @error-color;
+        border-color: @error-color;
+        &:active{
+            color: @white-color;
+            background-color: @error-color;
+        }
+    }
+    &:active{
+        color: @white-color;
+        background-color: @link-color;
+    }
+}
+
+/* active状态元素 */
+.active-ele{
+    &:active{
+        background-color: @active-bg;
+    }
+}
+
+/* 内容列表 */
+.ch-list{
+    position: relative;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    background-color: @white-color;
+    overflow: hidden;
+
+    .list-item{
+        position: relative;
+        padding: .22rem @padding-left;
+        background-color: @white-color;
+        overflow: hidden;
+
+        .item{
+            float: left;
+            width: 80%;
+
+            .item-title{
+                font-size: 0.3rem;
+            }
+            .item-context{
+                font-size: 0.24rem;
+                color: @txt-color;
+            }
+        }
+        .sub-item{
+            float: right;
+            width: 20%;
+            color: @txt-color;
+            text-align: right;
+
+            .item-time{
+                font-size: 0.3rem;
+            }
+            .item-date{
+                font-size: 0.24rem;
+            }
+        }
+        &:not(:last-of-type):after{
+            content: '';
+            display: block;
+            position: absolute;
+            margin-left: .24rem;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            background-color: @border-color;
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+        }
+        &:active{
+            background-color: @active-bg;
+        }
+    }
+}
+
+/* 表单列表 */
+.ch-form{
+    position: relative;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    background-color: @white-color;
+    overflow: hidden;
+
+    .form-item{
+        position: relative;
+        padding: .1rem @padding-left;
+        background-color: @white-color;
+        overflow: hidden;
+
+        .form-label{
+            float: left;
+            width: 30%;
+            padding: 0.15rem 0;
+            font-size: 0.28rem;
+        }
+        .form-content{
+            float: right;
+            width: 65%;
+
+            .form-input{
+                padding: 0.15rem 0;
+                width: 100%;
+                border: none;
+                text-align: right;
+                font-size: 0.28rem;
+                color: #9a9a9a;
+                outline: none;
+                resize: none;
+
+                &::-webkit-input-placeholder {
+                    color: @placeholder-color; /* WebKit browsers */
+                    direction: rtl;
+                }
+                &:-moz-placeholder {
+                    color: @placeholder-color; /* Mozilla Firefox 4 to 18 */
+                    direction: rtl;
+                }
+                &::-moz-placeholder {
+                    color: @placeholder-color; /* Mozilla Firefox 19+ */
+                    direction: rtl;
+                }
+                &:-ms-input-placeholder {
+                    color: @placeholder-color; /* Internet Explorer 10+ */
+                    direction: rtl;
+                }
+            }
+            .select-input{
+                position: relative;
+                display: block;
+                text-align: right;
+                padding: 0.15rem .3rem .15rem 0;
+                min-height: 19px;
+                font-size: 0.28rem;
+                color: @placeholder-color;
+
+                &.has-val{
+                    color: @txt-color;
+                }
+                &:after{
+                    display: inline-block;
+                    position: absolute;
+                    right: 0;
+                    top: 0.2rem;
+                    width: 0.2rem;
+                    height: 0.3rem;
+                    background: url(../i/arrow.png) no-repeat center right;
+                    background-size: 100% 100%;
+                    content: '';
+                }
+            }
+        }
+
+        &:not(:last-of-type):after{
+            content: '';
+            display: block;
+            position: absolute;
+            margin-left: .24rem;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            background-color: @border-color;
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+        }
+    }
+}

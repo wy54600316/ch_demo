@@ -1,0 +1,253 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  /* 兼容iOS下的:active效果 */
+  -webkit-tap-highlight-color: transparent;
+}
+html,
+body {
+  min-height: 100%;
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+  color: #333;
+}
+input,
+pre,
+p,
+textarea,
+button {
+  font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+/*公用类*/
+.hide {
+  display: none !important;
+  visibility: hidden !important;
+}
+.block {
+  display: block !important;
+}
+.inline-block {
+  display: inline-block !important;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/* 按钮 */
+.btn {
+  display: inline-block;
+  font-size: 0.28rem;
+  padding: 0.1rem 0.22rem;
+  color: #49bbfc;
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 0.06rem;
+  outline: none;
+}
+.btn.link-btn {
+  border-width: 0;
+}
+.btn.link-btn:active {
+  color: #49bbfc;
+  background-color: #e5e5e5;
+}
+.btn.warning {
+  color: #f37b1d;
+  border-color: #f37b1d;
+}
+.btn.warning:active {
+  color: #fff;
+  background-color: #f37b1d;
+}
+.btn.success {
+  color: #5eb95e;
+  border-color: #5eb95e;
+}
+.btn.success:active {
+  color: #fff;
+  background-color: #5eb95e;
+}
+.btn.alert {
+  color: #dd514c;
+  border-color: #dd514c;
+}
+.btn.alert:active {
+  color: #fff;
+  background-color: #dd514c;
+}
+.btn:active {
+  color: #fff;
+  background-color: #49bbfc;
+}
+/* active状态元素 */
+.active-ele:active {
+  background-color: #e5e5e5;
+}
+/* 内容列表 */
+.ch-list {
+  position: relative;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+.ch-list .list-item {
+  position: relative;
+  padding: 0.22rem 0.24rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+.ch-list .list-item .item {
+  float: left;
+  width: 80%;
+}
+.ch-list .list-item .item .item-title {
+  font-size: 0.3rem;
+}
+.ch-list .list-item .item .item-context {
+  font-size: 0.24rem;
+  color: #9a9a9a;
+}
+.ch-list .list-item .sub-item {
+  float: right;
+  width: 20%;
+  color: #9a9a9a;
+  text-align: right;
+}
+.ch-list .list-item .sub-item .item-time {
+  font-size: 0.3rem;
+}
+.ch-list .list-item .sub-item .item-date {
+  font-size: 0.24rem;
+}
+.ch-list .list-item:not(:last-of-type):after {
+  content: '';
+  display: block;
+  position: absolute;
+  margin-left: .24rem;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: #dce1e8;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.ch-list .list-item:active {
+  background-color: #e5e5e5;
+}
+/* 表单列表 */
+.ch-form {
+  position: relative;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+.ch-form .form-item {
+  position: relative;
+  padding: 0.1rem 0.24rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+.ch-form .form-item .form-label {
+  float: left;
+  width: 30%;
+  padding: 0.15rem 0;
+  font-size: 0.28rem;
+}
+.ch-form .form-item .form-content {
+  float: right;
+  width: 65%;
+}
+.ch-form .form-item .form-content .form-input {
+  padding: 0.15rem 0;
+  width: 100%;
+  border: none;
+  text-align: right;
+  font-size: 0.28rem;
+  color: #9a9a9a;
+  outline: none;
+  resize: none;
+}
+.ch-form .form-item .form-content .form-input::-webkit-input-placeholder {
+  color: #bdbdbd;
+  /* WebKit browsers */
+  direction: rtl;
+}
+.ch-form .form-item .form-content .form-input:-moz-placeholder {
+  color: #bdbdbd;
+  /* Mozilla Firefox 4 to 18 */
+  direction: rtl;
+}
+.ch-form .form-item .form-content .form-input::-moz-placeholder {
+  color: #bdbdbd;
+  /* Mozilla Firefox 19+ */
+  direction: rtl;
+}
+.ch-form .form-item .form-content .form-input:-ms-input-placeholder {
+  color: #bdbdbd;
+  /* Internet Explorer 10+ */
+  direction: rtl;
+}
+.ch-form .form-item .form-content .select-input {
+  position: relative;
+  display: block;
+  text-align: right;
+  padding: 0.15rem .3rem .15rem 0;
+  min-height: 19px;
+  font-size: 0.28rem;
+  color: #bdbdbd;
+}
+.ch-form .form-item .form-content .select-input.has-val {
+  color: #9a9a9a;
+}
+.ch-form .form-item .form-content .select-input:after {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0.2rem;
+  width: 0.2rem;
+  height: 0.3rem;
+  background: url(../i/arrow.png) no-repeat center right;
+  background-size: 100% 100%;
+  content: '';
+}
+.ch-form .form-item:not(:last-of-type):after {
+  content: '';
+  display: block;
+  position: absolute;
+  margin-left: .24rem;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: #dce1e8;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}

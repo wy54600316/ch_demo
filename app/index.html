@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="云之家">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>云之家轻应用UI demo</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="i/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/mobile-select-area.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <style type="text/css">
+        div.label-title{
+            margin: 10px 0;
+            padding: 0 10px;
+            font-weight: bold;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<div class="label-title">列表</div>
+<ul class="ch-list">
+    <li class="list-item">
+        <div class="item">
+            <div class="item-title">我是标题</div>
+            <div class="item-context">我是副标题</div>
+        </div>
+        <div class="sub-item">
+            <div class="item-time">22:30</div>
+            <div class="item-date">08/07</div>
+        </div>
+    </li>
+    <li class="list-item">
+        <div class="item">
+            <div class="item-title">我是标题</div>
+            <div class="item-context">我是副标题</div>
+        </div>
+        <div class="sub-item">
+            <div class="item-time">22:30</div>
+            <div class="item-date">08/07</div>
+        </div>
+    </li>
+    <li class="list-item">
+        <div class="item">
+            <div class="item-title">我是标题</div>
+            <div class="item-context">我是副标题</div>
+        </div>
+        <div class="sub-item">
+            <div class="item-time">22:30</div>
+            <div class="item-date">08/07</div>
+        </div>
+    </li>
+</ul>
+
+<div class="label-title">表单</div>
+<ul class="ch-form">
+    <li class="form-item">
+        <label class="form-label">姓名</label>
+        <div class="form-content">
+            <input type="text" class="form-input" placeholder="请输入姓名">
+        </div>
+    </li>
+    <li class="form-item">
+        <label class="form-label">公司</label>
+        <div class="form-content">
+            <input type="text" class="form-input" placeholder="请输入公司名称">
+        </div>
+    </li>
+    <li class="form-item">
+        <label class="form-label">企业规模</label>
+        <div class="form-content">
+            <span class="select-input scale-sel" id="scaleSel">请选择</span>
+        </div>
+    </li>
+    <li class="form-item">
+        <label class="form-label">企业介绍</label>
+        <div class="form-content">
+            <textarea class="form-input" placeholder="请输入企业介绍" rows="2"></textarea>
+        </div>
+    </li>
+</ul>
+
+<div class="label-title">按钮</div>
+<div style="padding-left: .24rem;">
+    <button class="btn link-btn">确定</button>
+    <button class="btn">取消</button>
+    <span class="btn warning">警告</span>
+    <a class="btn alert">删除</a>
+    <div class="btn success">确定</div>
+</div>
+
+<div class="label-title">模态窗</div>
+<div style="padding-left: .24rem;">
+    <div class="btn " id="alertBtn">Alert Dialog</div>
+    <div class="btn " id="confirmBtn">Confirm Dialog</div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/mobile-select-area.js"></script>
+<script type="text/javascript">
+    // 兼容iOS下伪类:active的点击效果
+    document.body.addEventListener('touchstart', function () { /*...空函数即可*/});
+
+    // 根据可视尺寸计算font-size
+    document.addEventListener('DOMContentLoaded', function () {
+        var html = document.documentElement;
+        var windowWidth = html.clientWidth;
+        html.style.fontSize = windowWidth / 6.4 + 'px'; // 等价于html.style.fontSize = windowWidth / 640 * 100 + 'px';
+        // alert(windowWidth+'::'+document.documentElement.clientHeight);
+    }, false);
+
+    $(function() {
+        var scaleArea = new MobileSelectArea();
+        scaleArea.init({
+            trigger:'#scaleSel', 
+            data: [{id: 1, name: '1~10人'},{id: 2, name: '10~20人'},{id: 3, name: '100~1000人'}], 
+            level: 1, 
+            default: 1,
+            showType: 'easingIn',
+            callback: function($scroller, txtArr, valArr) {
+                // submitData.size = txtArr[0];
+                // if(submitData.size) {
+                //     $('.scale-item').removeClass('error');
+                // }
+            }
+        });
+
+        $('#alertBtn').click(function(){
+            $.alert("这是一个alert提示窗！<br>你也来试试吧......", 
+                "确定", 
+                function(){
+                    // callback TODO:
+                }, 0, {
+                    fixed: true,
+                    width: '90%'
+                }
+            );
+        });
+
+        $('#confirmBtn').click(function() {
+            $.confirm("这是一个alert提示窗！<br>你也来试试吧......", 
+                null, 
+                function(t, c){
+                    if (t == "yes") {
+                        this.hide()
+                    }
+                    if (t == 'no') {
+                        this.hide();
+                    }
+                    this.dispose();
+                }, {
+                    // fixed: true,
+                    width: '100%',
+                    showType: 'easingIn'
+                }
+            );
+        });
+    });
+</script>
+</html>
